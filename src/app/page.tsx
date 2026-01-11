@@ -1,6 +1,15 @@
+"use client";
+
 import React from 'react';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 import Hero from '@/components/Hero';
+
+const ArrowIcon = () => (
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+    <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+);
 
 export default function Home() {
   return (
@@ -26,7 +35,13 @@ export default function Home() {
       {/* Capabilities Preview Section */}
       <section className="py-16 px-6 bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8"
+          >
             <h2 className="text-4xl md:text-6xl font-bold tracking-tight max-w-2xl leading-[1.1]">
               Let’s turn your <span className="relative inline-block">
                 potential
@@ -39,7 +54,7 @@ export default function Home() {
                 <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </Link>
-          </div>
+          </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
             {[
@@ -64,7 +79,14 @@ export default function Home() {
                 outcomes: ["Analytics Dashboard", "SEO & Speed Audit", "Conversion Optimization"]
               }
             ].map((service, idx) => (
-              <div key={idx} className="group cursor-default p-8 bg-white rounded-xl border border-gray-50 shadow-sm hover:shadow-xl transition-all duration-300">
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: idx * 0.1 }}
+                className="group cursor-default p-8 bg-white rounded-xl border border-gray-50 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+              >
                 <div className="w-12 h-12 mb-6 border border-gray-100 rounded-sm flex items-center justify-center group-hover:bg-accent group-hover:border-accent transition-colors">
                   <div className="w-6 h-6 border-2 border-foreground group-hover:border-white transition-colors" />
                 </div>
@@ -86,7 +108,7 @@ export default function Home() {
                     </li>
                   ))}
                 </ul>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -95,7 +117,13 @@ export default function Home() {
       {/* Selected Work Section */}
       <section className="py-16 px-6 bg-gray-50">
         <div className="max-w-7xl mx-auto">
-          <div className="flex justify-between items-end mb-16">
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="flex justify-between items-end mb-16"
+          >
             <h2 className="text-4xl md:text-6xl font-bold tracking-tight">Selected Work</h2>
             <button className="text-lg font-bold group flex items-center gap-2 hover:text-accent transition-colors">
               View All Projects
@@ -103,7 +131,7 @@ export default function Home() {
                 <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </button>
-          </div>
+          </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             {[
@@ -120,7 +148,14 @@ export default function Home() {
                 color: "bg-green-600"
               }
             ].map((study, idx) => (
-              <div key={idx} className="group relative h-[500px] overflow-hidden rounded-xl cursor-pointer shadow-lg hover:shadow-2xl transition-shadow duration-500">
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: idx * 0.2 }}
+                className="group relative h-[500px] overflow-hidden rounded-xl cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-500"
+              >
                 <div className={`absolute inset-0 ${study.color} transition-transform duration-700 group-hover:scale-105`} />
                 <div className="absolute inset-0 z-10 p-12 flex flex-col justify-end bg-gradient-to-t from-black/60 to-transparent">
                   <div className="mb-2 text-white/70 font-bold uppercase tracking-widest text-xs">{study.client}</div>
@@ -133,7 +168,7 @@ export default function Home() {
                     </span>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -142,18 +177,33 @@ export default function Home() {
       {/* Process Section */}
       <section className="py-16 px-6 bg-white">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl md:text-6xl font-bold tracking-tight mb-20">How We Build</h2>
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-4xl md:text-6xl font-bold tracking-tight mb-20"
+          >
+            How We Build
+          </motion.h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-16">
             {[
               { step: "01", title: "Strategy", desc: "We define the roadmap, prioritize features, and validate the market fit." },
               { step: "02", title: "Design", desc: "Human-centered UI/UX design focused on performance and retention." },
               { step: "03", title: "Engineering", desc: "High-performance full-stack development with a focus on scale." }
             ].map((p, i) => (
-              <div key={i} className="relative group">
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: i * 0.2 }}
+                className="relative group"
+              >
                 <div className="text-6xl font-black text-gray-300 mb-8 transition-colors group-hover:text-accent/20">{p.step}</div>
                 <h3 className="text-2xl font-bold mb-4">{p.title}</h3>
                 <p className="text-secondary leading-relaxed">{p.desc}</p>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -162,13 +212,24 @@ export default function Home() {
       {/* Integrated Contact Form Section */}
       <section className="py-16 px-6 bg-[#161a23] text-white">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-20">
-          <div>
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
             <h2 className="text-4xl md:text-6xl font-bold mb-8 leading-tight">Ready to build?</h2>
             <p className="text-xl text-gray-400 max-w-md leading-relaxed">
               Tell us about your project and we'll get back to you within 24 hours.
             </p>
-          </div>
-          <div className="bg-white/5 p-12 rounded-xl backdrop-blur-sm border border-white/10">
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="bg-white/5 p-12 rounded-xl backdrop-blur-sm border border-white/10 shadow-2xl"
+          >
             <form className="space-y-6">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <input type="text" placeholder="Full Name" className="w-full bg-white/10 border border-white/10 px-4 py-4 rounded-sm outline-none focus:border-accent transition-colors text-white" />
@@ -176,21 +237,15 @@ export default function Home() {
               </div>
               <input type="text" placeholder="Company" className="w-full bg-white/10 border border-white/10 px-4 py-4 rounded-sm outline-none focus:border-accent transition-colors text-white" />
               <textarea placeholder="How can we help?" rows={4} className="w-full bg-white/10 border border-white/10 px-4 py-4 rounded-sm outline-none focus:border-accent transition-colors text-white resize-none"></textarea>
-              <button className="w-full bg-accent text-white py-5 font-bold text-lg hover:bg-white hover:text-black transition-all flex items-center justify-center gap-4 group">
+              <button className="w-full bg-accent text-white py-5 font-bold text-lg hover:bg-black transition-all flex items-center justify-center gap-4 group shadow-lg hover:shadow-accent/20">
                 Send Inquiry
                 <ArrowIcon />
               </button>
             </form>
-          </div>
+          </motion.div>
         </div>
       </section>
     </div>
   );
 }
 
-const ArrowIcon = () => (
-  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" className="opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all">
-    <path d="M4.16663 10H15.8333" stroke="#ea5b0c" strokeWidth="1.67" strokeLinecap="round" strokeLinejoin="round" />
-    <path d="M10 4.16669L15.8333 10L10 15.8334" stroke="#ea5b0c" strokeWidth="1.67" strokeLinecap="round" strokeLinejoin="round" />
-  </svg>
-);

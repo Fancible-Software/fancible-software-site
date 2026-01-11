@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { Mail, Phone, MapPin, ArrowRight } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const ContactPage = () => {
     return (
@@ -61,7 +62,13 @@ const ContactPage = () => {
                     </div>
 
                     {/* Form Side */}
-                    <div className="bg-gray-50 p-12 rounded-xl">
+                    <motion.div
+                        initial={{ opacity: 0, x: 20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8 }}
+                        className="bg-gray-50 p-12 rounded-xl shadow-2xl border border-gray-100"
+                    >
                         <h3 className="text-2xl font-bold mb-8">Project Inquiry</h3>
                         <form className="space-y-6">
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -100,8 +107,7 @@ const ContactPage = () => {
                                 <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform" />
                             </button>
                         </form>
-                    </div>
-
+                    </motion.div>
                 </div>
             </section>
         </div>

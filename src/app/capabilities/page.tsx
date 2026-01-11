@@ -53,7 +53,14 @@ const CapabilitiesPage = () => {
             <section className="py-16 px-6">
                 <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-16">
                     {pillars.map((pillar, idx) => (
-                        <div key={idx} className="group">
+                        <motion.div
+                            key={idx}
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.6, delay: idx * 0.1 }}
+                            className="group p-8 rounded-2xl border border-gray-50 shadow-sm hover:shadow-xl transition-all duration-300 bg-white"
+                        >
                             <div className="flex items-center gap-4 mb-8">
                                 <div className="w-16 h-1 bg-accent" />
                                 <h2 className="text-3xl font-bold tracking-tight">{pillar.title}</h2>
@@ -91,24 +98,30 @@ const CapabilitiesPage = () => {
                                     </ul>
                                 </div>
                             </div>
-                        </div>
+                        </motion.div>
                     ))}
                 </div>
             </section>
 
             {/* CTA */}
             <section className="py-24 px-6 bg-[#161a23] text-white">
-                <div className="max-w-7xl mx-auto text-center">
+                <motion.div
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.8 }}
+                    className="max-w-7xl mx-auto text-center"
+                >
                     <h2 className="text-4xl md:text-5xl font-bold mb-12 leading-tight">
                         Ready to build something <br /> high-performing?
                     </h2>
-                    <button className="bg-accent text-white px-10 py-5 rounded-sm font-bold text-lg hover:bg-white hover:text-black transition-all group inline-flex items-center gap-3">
+                    <button className="bg-accent text-white px-10 py-5 rounded-sm font-bold text-lg hover:bg-black transition-all group inline-flex items-center gap-3 shadow-lg hover:shadow-accent/20">
                         Start Your Project
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="group-hover:translate-x-2 transition-transform">
                             <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                         </svg>
                     </button>
-                </div>
+                </motion.div>
             </section>
         </div>
     );
