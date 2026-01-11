@@ -1,7 +1,7 @@
 "use client";
 
-import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import Hero from '@/components/Hero';
 
@@ -74,9 +74,9 @@ export default function Home() {
                 outcomes: ["Clean Architecture", "Lightning Fast Performance", "API-First"]
               },
               {
-                title: "Growth & Scale",
-                desc: "Data-driven optimization and analytics to ensure your platform scales with your business.",
-                outcomes: ["Analytics Dashboard", "SEO & Speed Audit", "Conversion Optimization"]
+                title: "Marketing & Growth",
+                desc: "Data-driven performance marketing and optimization to ensure your business scales effectively.",
+                outcomes: ["Lead Generation", "Paid Media Strategy", "Conversion Optimization"]
               }
             ].map((service, idx) => (
               <motion.div
@@ -139,13 +139,13 @@ export default function Home() {
                 client: "FinTech OS",
                 title: "Revolutionizing Digital Banking",
                 stat: "45% Engagement Boost",
-                color: "bg-blue-600"
+                image: "/airfocus-K_VeavYEfdA-unsplash.jpg"
               },
               {
                 client: "Prisma Cloud",
                 title: "Visual Data Exploration",
                 stat: "3.5x Speed Increase",
-                color: "bg-green-600"
+                image: "/alesia-kazantceva-XLm6-fPwK5Q-unsplash.jpg"
               }
             ].map((study, idx) => (
               <motion.div
@@ -156,9 +156,17 @@ export default function Home() {
                 transition={{ duration: 0.8, delay: idx * 0.2 }}
                 className="group relative h-[500px] overflow-hidden rounded-xl cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-500"
               >
-                <div className={`absolute inset-0 ${study.color} transition-transform duration-700 group-hover:scale-105`} />
-                <div className="absolute inset-0 z-10 p-12 flex flex-col justify-end bg-gradient-to-t from-black/60 to-transparent">
-                  <div className="mb-2 text-white/70 font-bold uppercase tracking-widest text-xs">{study.client}</div>
+                <div className="absolute inset-0 transition-transform duration-700 group-hover:scale-105">
+                  <Image
+                    src={study.image}
+                    alt={study.title}
+                    fill
+                    className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+                  />
+                  <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-500" />
+                </div>
+                <div className="absolute inset-0 z-10 p-12 flex flex-col justify-end">
+                  <div className="mb-2 text-white font-bold uppercase tracking-widest text-xs">{study.client}</div>
                   <h3 className="text-3xl font-bold text-white mb-6">{study.title}</h3>
                   <div className="flex items-center justify-between border-t border-white/20 pt-6">
                     <span className="text-accent font-bold text-lg">{study.stat}</span>
@@ -205,6 +213,91 @@ export default function Home() {
                 <p className="text-secondary leading-relaxed">{p.desc}</p>
               </motion.div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Digital Marketing / SMB Focus Section */}
+      <section className="py-24 px-6 bg-gray-50 border-y border-gray-100 overflow-hidden">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+            >
+              <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-8 leading-tight">
+                Accelerate your growth with <span className="text-accent">Performance Marketing</span>.
+              </h2>
+              <p className="text-xl text-secondary mb-12 leading-relaxed">
+                We don't just build products; we help them find the right audience. Our digital marketing solutions are tailored for SMBs looking for measurable ROI and sustainable lead generation.
+              </p>
+
+              <div className="space-y-6">
+                {[
+                  { title: "Search Engine Marketing", desc: "Dominate search results with targeted SEM campaigns and SEO optimization." },
+                  { title: "Paid Social Ads", desc: "Reach your ideal customers on the platforms they use most with high-conversion creative." },
+                  { title: "Lead Generation", desc: "Custom funnels and automated email sequences to turn visitors into loyal customers." }
+                ].map((item, i) => (
+                  <div key={i} className="flex gap-4">
+                    <div className="mt-1 w-5 h-5 rounded-full bg-accent/10 flex items-center justify-center flex-shrink-0">
+                      <div className="w-2 h-2 rounded-full bg-accent" />
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-lg mb-1">{item.title}</h4>
+                      <p className="text-secondary">{item.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-12">
+                <Link href="/contact" className="inline-flex items-center gap-2 text-lg font-bold text-accent hover:gap-4 transition-all">
+                  Get a Free Marketing Audit
+                  <ArrowIcon />
+                </Link>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="relative"
+            >
+              <div className="aspect-square bg-white rounded-3xl p-12 shadow-2xl border border-gray-100 flex flex-col justify-center">
+                <div className="mb-8">
+                  <div className="text-[11px] font-bold uppercase tracking-widest text-accent mb-2">Sample Performance</div>
+                  <div className="text-4xl font-bold tracking-tight">+320% Lead Volume</div>
+                </div>
+                <div className="space-y-4">
+                  {[40, 65, 55, 90, 85].map((h, i) => (
+                    <div key={i} className="flex items-end gap-2 h-12">
+                      <div className="w-full bg-gray-50 rounded-t-lg" style={{ height: `${h}%` }}>
+                        <motion.div
+                          initial={{ height: 0 }}
+                          whileInView={{ height: '100%' }}
+                          transition={{ duration: 1, delay: i * 0.1 }}
+                          className="w-full bg-accent rounded-t-lg"
+                        />
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                <div className="mt-8 flex justify-between text-[11px] font-bold text-gray-400 uppercase tracking-widest">
+                  <span>Week 1</span>
+                  <span>Week 2</span>
+                  <span>Week 3</span>
+                  <span>Week 4</span>
+                  <span>Week 5</span>
+                </div>
+              </div>
+
+              <div className="absolute -top-12 -right-12 w-32 h-32 bg-accent/5 rounded-full blur-3xl -z-10" />
+              <div className="absolute -bottom-12 -left-12 w-48 h-48 bg-blue-500/5 rounded-full blur-3xl -z-10" />
+            </motion.div>
           </div>
         </div>
       </section>

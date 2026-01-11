@@ -1,6 +1,6 @@
 "use client";
 
-import React from 'react';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 
 const CapabilitiesPage = () => {
@@ -10,28 +10,40 @@ const CapabilitiesPage = () => {
             tagline: "Bridging the gap between vision and market success.",
             desc: "Our strategic approach ensures your SaaS product isn't just built, but positioned for long-term growth and scalability.",
             subItems: ["MVP Roadmap & Prioritization", "Market & Competitive Analysis", "Monetization Strategy", "GTM Execution"],
-            outcomes: ["Clear Product Direction", "Optimized Feature Set", "Lower Time-to-Market"]
+            outcomes: ["Clear Product Direction", "Optimized Feature Set", "Lower Time-to-Market"],
+            image: "/icons8-team-yTwXpLO5HAA-unsplash.jpg"
         },
         {
             title: "UX/UI Design",
             tagline: "Human-centered design for high-performance SaaS.",
             desc: "We design intuitive, scalable interfaces that reduce friction and drive user retention for complex web and mobile platforms.",
             subItems: ["SaaS Design Systems", "High-Fidelity Prototyping", "User Journey Mapping", "Usability Audit & Optimization"],
-            outcomes: ["Unified Visual Language", "Increased User Engagement", "Reduced Support Needs"]
+            outcomes: ["Unified Visual Language", "Increased User Engagement", "Reduced Support Needs"],
+            image: "/kaitlyn-baker-vZJdYl5JVXY-unsplash.jpg"
         },
         {
             title: "Engineering",
             tagline: "Precision engineering for mission-critical apps.",
             desc: "From Next.js frontends to robust cloud-native backends, we build performant, secure, and scalable digital products.",
             subItems: ["Full-Stack Next.js Dev", "API-First Architecture", "Cloud Native (AWS/GCP)", "DevOps & CI/CD Pipelines"],
-            outcomes: ["Scalable Infrastructure", "High Page Speed/Performance", "Clean, Maintainable Code"]
+            outcomes: ["Scalable Infrastructure", "High Page Speed/Performance", "Clean, Maintainable Code"],
+            image: "/sean-pollock-PhYq704ffdA-unsplash.jpg"
+        },
+        {
+            title: "Digital Marketing",
+            tagline: "High-performance growth for ambitious SMBs.",
+            desc: "Expert performance marketing solutions designed to drive leads, increase conversions, and maximize your digital footprint.",
+            subItems: ["Search Engine Marketing (SEM)", "Targeted Paid Social Ads", "Data-Driven Content Strategy", "Lead Gen & Email Automation"],
+            outcomes: ["Consistent Lead Pipeline", "Positive ROI/Ad Spend", "Increased Brand Authority"],
+            image: "/austin-distel-_S7-KX8geL0-unsplash.jpg"
         },
         {
             title: "Growth & Scale",
             tagline: "Sustaining momentum through data-driven insight.",
             desc: "We provide the analytics and performance optimization needed to ensure your application continues to deliver results as you scale.",
             subItems: ["Data & Analytics Setup", "Conversion Rate Optimization", "Retention Monitoring", "Periodic Performance Audits"],
-            outcomes: ["Data-Informed Decision Making", "Increased CLV", "Optimized Scaling Costs"]
+            outcomes: ["Data-Informed Decision Making", "Increased CLV", "Optimized Scaling Costs"],
+            image: "/brooke-cagle-g1Kr4Ozfoac-unsplash.jpg"
         }
     ];
 
@@ -59,8 +71,16 @@ const CapabilitiesPage = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.6, delay: idx * 0.1 }}
-                            className="group p-8 rounded-2xl border border-gray-50 shadow-sm hover:shadow-xl transition-all duration-300 bg-white"
+                            className="group p-8 rounded-2xl border border-gray-50 shadow-sm hover:shadow-xl transition-all duration-300 bg-white overflow-hidden relative"
                         >
+                            <div className="absolute top-0 right-0 w-32 h-32 opacity-10 group-hover:opacity-30 transition-opacity">
+                                <Image
+                                    src={pillar.image}
+                                    alt={pillar.title}
+                                    fill
+                                    className="object-cover"
+                                />
+                            </div>
                             <div className="flex items-center gap-4 mb-8">
                                 <div className="w-16 h-1 bg-accent" />
                                 <h2 className="text-3xl font-bold tracking-tight">{pillar.title}</h2>

@@ -11,35 +11,35 @@ const OurWorkPage = () => {
             title: "Revolutionizing Digital Banking",
             desc: "Built a high-performance dashboard that increased user engagement by 45%.",
             stat: "45% Engagement Boost",
-            color: "bg-blue-600"
+            image: "/amy-hirschi-K0c8ko3e6AA-unsplash.jpg"
         },
         {
             client: "Logic Scale",
             title: "Enterprise Inventory Management",
             desc: "A custom SaaS solution that scaled to handle $2B in annual transactions.",
             stat: "$2B Transacted Yearly",
-            color: "bg-purple-600"
+            image: "/annie-spratt-QckxruozjRg-unsplash.jpg"
         },
         {
             client: "Prisma Cloud",
             title: "Visual Data Exploration",
             desc: "Re-engineered the visual core for 3.5x faster data rendering.",
             stat: "3.5x Speed Increase",
-            color: "bg-green-600"
+            image: "/cytonn-photography-n95VMLxqM2I-unsplash.jpg"
         },
         {
             client: "Vanguard Apps",
             title: "Mobile Real Estate Platform",
             desc: "Native-feel cross-platform app delivered in 12 weeks for MVP launch.",
             stat: "12-Week MVP Delivery",
-            color: "bg-orange-600"
+            image: "/daria-pimkina-Dj5HnHMtkH0-unsplash.jpg"
         },
         {
             client: "CodeBase",
             title: "Collaborative IDE Platform",
             desc: "Next-gen collaborative tools for remote engineering teams.",
             stat: "15k+ Monthly Active Users",
-            color: "bg-gray-800"
+            image: "/john-schnobrich-2FPjlAyMQTA-unsplash.jpg"
         }
     ];
 
@@ -67,10 +67,20 @@ const OurWorkPage = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.6, delay: idx * 0.1 }}
-                            className={`group relative h-[600px] overflow-hidden rounded-xl cursor-pointer shadow-xl hover:shadow-2xl transition-all duration-500 ${study.color}`}
+                            className="group relative h-[600px] overflow-hidden rounded-xl cursor-pointer shadow-xl hover:shadow-2xl transition-all duration-500"
                         >
+                            <div className="absolute inset-0 transition-transform duration-700 group-hover:scale-105">
+                                <Image
+                                    src={study.image}
+                                    alt={study.title}
+                                    fill
+                                    className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+                                />
+                                <div className="absolute inset-0 bg-black/60 group-hover:bg-black/40 transition-colors duration-500" />
+                            </div>
+
                             {/* Overlay with Content */}
-                            <div className="absolute inset-0 z-10 p-12 flex flex-col justify-end bg-gradient-to-t from-black/80 via-black/20 to-transparent">
+                            <div className="absolute inset-0 z-10 p-12 flex flex-col justify-end">
                                 <div className="mb-4 text-white/70 font-bold uppercase tracking-widest text-xs">
                                     {study.client}
                                 </div>
@@ -91,9 +101,6 @@ const OurWorkPage = () => {
                                     </span>
                                 </div>
                             </div>
-
-                            {/* Placeholder for Case Study Image */}
-                            <div className="absolute inset-0 bg-white/5 group-hover:scale-105 transition-transform duration-700 pointer-events-none" />
                         </motion.div>
                     ))}
                 </div>
