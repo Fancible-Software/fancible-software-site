@@ -67,10 +67,10 @@ const CapabilitiesPage = () => {
                     {pillars.map((pillar, idx) => (
                         <motion.div
                             key={idx}
-                            initial={{ opacity: 0, y: 30 }}
+                            initial={{ opacity: 0, y: 10 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            transition={{ duration: 0.6, delay: idx * 0.1 }}
+                            transition={{ duration: 0.6, delay: idx * 0.08 }}
                             className="group p-8 rounded-2xl border border-gray-50 shadow-sm hover:shadow-xl transition-all duration-300 bg-white overflow-hidden relative"
                         >
                             <div className="absolute top-0 right-0 w-32 h-32 opacity-10 group-hover:opacity-30 transition-opacity">
