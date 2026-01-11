@@ -6,7 +6,7 @@ import Image from 'next/image';
 
 const Hero = () => {
     return (
-        <section className="relative pt-20 pb-32 px-6 overflow-hidden">
+        <section className="relative pt-20 pb-16 px-6 overflow-hidden">
             <div className="max-w-7xl mx-auto relative z-10 text-center">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
@@ -54,7 +54,7 @@ const Hero = () => {
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 1, delay: 0.3 }}
-                    className="mt-24 relative max-w-5xl mx-auto"
+                    className="mt-12 relative max-w-5xl mx-auto"
                 >
                     <div className="relative rounded-xl overflow-hidden shadow-[0_32px_64px_-16px_rgba(0,0,0,0.1)] border border-gray-100">
                         <Image

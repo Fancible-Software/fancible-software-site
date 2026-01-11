@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import Hero from '@/components/Hero';
 
 export default function Home() {
@@ -7,7 +8,7 @@ export default function Home() {
       <Hero />
 
       {/* Social Proof / Clients Section */}
-      <section className="py-20 border-t border-gray-50">
+      <section className="py-12 border-t border-gray-50 bg-white relative z-20">
         <div className="max-w-7xl mx-auto px-6">
           <p className="text-center text-sm font-semibold uppercase tracking-widest text-gray-400 mb-12">
             Trusted by teams at
@@ -22,22 +23,22 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Capabilities Preview Section (Matching Smith Style) */}
-      <section className="py-32 px-6 bg-white overflow-hidden">
+      {/* Capabilities Preview Section */}
+      <section className="py-16 px-6 bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col md:flex-row justify-between items-end mb-24 gap-8">
+          <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
             <h2 className="text-4xl md:text-6xl font-bold tracking-tight max-w-2xl leading-[1.1]">
               Let’s turn your <span className="relative inline-block">
                 potential
                 <span className="absolute -bottom-2 left-0 w-full h-1 bg-accent/20"></span>
               </span> into performance.
             </h2>
-            <button className="text-lg font-bold group flex items-center gap-2 hover:text-accent transition-colors">
+            <Link href="/capabilities" className="text-lg font-bold group flex items-center gap-2 hover:text-accent transition-colors">
               Our Capabilities
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="group-hover:translate-x-2 transition-transform">
                 <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
-            </button>
+            </Link>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
@@ -63,8 +64,8 @@ export default function Home() {
                 outcomes: ["Analytics Dashboard", "SEO & Speed Audit", "Conversion Optimization"]
               }
             ].map((service, idx) => (
-              <div key={idx} className="group cursor-default">
-                <div className="w-12 h-12 mb-8 border border-gray-100 rounded-sm flex items-center justify-center group-hover:bg-accent group-hover:border-accent transition-colors">
+              <div key={idx} className="group cursor-default p-8 bg-white rounded-xl border border-gray-50 shadow-sm hover:shadow-xl transition-all duration-300">
+                <div className="w-12 h-12 mb-6 border border-gray-100 rounded-sm flex items-center justify-center group-hover:bg-accent group-hover:border-accent transition-colors">
                   <div className="w-6 h-6 border-2 border-foreground group-hover:border-white transition-colors" />
                 </div>
                 <h3 className="text-2xl font-bold mb-4 flex items-center gap-2 group-hover:text-accent transition-colors">
@@ -74,7 +75,7 @@ export default function Home() {
                 <p className="text-secondary leading-relaxed mb-8">
                   {service.desc}
                 </p>
-                <div className="pt-8 border-t border-gray-50 uppercase text-[11px] font-bold tracking-widest text-gray-400 mb-4">
+                <div className="pt-6 border-t border-gray-50 uppercase text-[11px] font-bold tracking-widest text-gray-400 mb-4">
                   Typical Outcomes
                 </div>
                 <ul className="space-y-3">
@@ -87,6 +88,99 @@ export default function Home() {
                 </ul>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Selected Work Section */}
+      <section className="py-16 px-6 bg-gray-50">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex justify-between items-end mb-16">
+            <h2 className="text-4xl md:text-6xl font-bold tracking-tight">Selected Work</h2>
+            <button className="text-lg font-bold group flex items-center gap-2 hover:text-accent transition-colors">
+              View All Projects
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="group-hover:translate-x-2 transition-transform">
+                <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </button>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+            {[
+              {
+                client: "FinTech OS",
+                title: "Revolutionizing Digital Banking",
+                stat: "45% Engagement Boost",
+                color: "bg-blue-600"
+              },
+              {
+                client: "Prisma Cloud",
+                title: "Visual Data Exploration",
+                stat: "3.5x Speed Increase",
+                color: "bg-green-600"
+              }
+            ].map((study, idx) => (
+              <div key={idx} className="group relative h-[500px] overflow-hidden rounded-xl cursor-pointer shadow-lg hover:shadow-2xl transition-shadow duration-500">
+                <div className={`absolute inset-0 ${study.color} transition-transform duration-700 group-hover:scale-105`} />
+                <div className="absolute inset-0 z-10 p-12 flex flex-col justify-end bg-gradient-to-t from-black/60 to-transparent">
+                  <div className="mb-2 text-white/70 font-bold uppercase tracking-widest text-xs">{study.client}</div>
+                  <h3 className="text-3xl font-bold text-white mb-6">{study.title}</h3>
+                  <div className="flex items-center justify-between border-t border-white/20 pt-6">
+                    <span className="text-accent font-bold text-lg">{study.stat}</span>
+                    <span className="text-white font-semibold flex items-center gap-2 group-hover:translate-x-2 transition-transform">
+                      View Project
+                      <ArrowIcon />
+                    </span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Process Section */}
+      <section className="py-16 px-6 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-4xl md:text-6xl font-bold tracking-tight mb-20">How We Build</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-16">
+            {[
+              { step: "01", title: "Strategy", desc: "We define the roadmap, prioritize features, and validate the market fit." },
+              { step: "02", title: "Design", desc: "Human-centered UI/UX design focused on performance and retention." },
+              { step: "03", title: "Engineering", desc: "High-performance full-stack development with a focus on scale." }
+            ].map((p, i) => (
+              <div key={i} className="relative group">
+                <div className="text-6xl font-black text-gray-300 mb-8 transition-colors group-hover:text-accent/20">{p.step}</div>
+                <h3 className="text-2xl font-bold mb-4">{p.title}</h3>
+                <p className="text-secondary leading-relaxed">{p.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Integrated Contact Form Section */}
+      <section className="py-16 px-6 bg-[#161a23] text-white">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-20">
+          <div>
+            <h2 className="text-4xl md:text-6xl font-bold mb-8 leading-tight">Ready to build?</h2>
+            <p className="text-xl text-gray-400 max-w-md leading-relaxed">
+              Tell us about your project and we'll get back to you within 24 hours.
+            </p>
+          </div>
+          <div className="bg-white/5 p-12 rounded-xl backdrop-blur-sm border border-white/10">
+            <form className="space-y-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <input type="text" placeholder="Full Name" className="w-full bg-white/10 border border-white/10 px-4 py-4 rounded-sm outline-none focus:border-accent transition-colors text-white" />
+                <input type="email" placeholder="Work Email" className="w-full bg-white/10 border border-white/10 px-4 py-4 rounded-sm outline-none focus:border-accent transition-colors text-white" />
+              </div>
+              <input type="text" placeholder="Company" className="w-full bg-white/10 border border-white/10 px-4 py-4 rounded-sm outline-none focus:border-accent transition-colors text-white" />
+              <textarea placeholder="How can we help?" rows={4} className="w-full bg-white/10 border border-white/10 px-4 py-4 rounded-sm outline-none focus:border-accent transition-colors text-white resize-none"></textarea>
+              <button className="w-full bg-accent text-white py-5 font-bold text-lg hover:bg-white hover:text-black transition-all flex items-center justify-center gap-4 group">
+                Send Inquiry
+                <ArrowIcon />
+              </button>
+            </form>
           </div>
         </div>
       </section>

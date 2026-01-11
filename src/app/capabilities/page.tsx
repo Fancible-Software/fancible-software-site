@@ -38,7 +38,7 @@ const CapabilitiesPage = () => {
     return (
         <div className="bg-white">
             {/* Hero */}
-            <section className="pt-32 pb-24 px-6 border-b border-gray-50">
+            <section className="pt-24 pb-12 px-6 border-b border-gray-50">
                 <div className="max-w-7xl mx-auto">
                     <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-8">
                         Capabilities.
@@ -50,8 +50,8 @@ const CapabilitiesPage = () => {
             </section>
 
             {/* Pillars Grid */}
-            <section className="py-24 px-6">
-                <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-24">
+            <section className="py-16 px-6">
+                <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-16">
                     {pillars.map((pillar, idx) => (
                         <div key={idx} className="group">
                             <div className="flex items-center gap-4 mb-8">
@@ -97,7 +97,7 @@ const CapabilitiesPage = () => {
             </section>
 
             {/* CTA */}
-            <section className="py-32 px-6 bg-[#161a23] text-white">
+            <section className="py-24 px-6 bg-[#161a23] text-white">
                 <div className="max-w-7xl mx-auto text-center">
                     <h2 className="text-4xl md:text-5xl font-bold mb-12 leading-tight">
                         Ready to build something <br /> high-performing?

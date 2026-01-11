@@ -59,7 +59,7 @@ const OurWorkPage = () => {
 
             {/* Work Grid */}
             <section className="py-24 px-6">
-                <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
                     {caseStudies.map((study, idx) => (
                         <motion.div
                             key={idx}
@@ -67,7 +67,7 @@ const OurWorkPage = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.6, delay: idx * 0.1 }}
-                            className={`group relative h-[600px] overflow-hidden rounded-xl cursor-pointer ${study.color}`}
+                            className={`group relative h-[600px] overflow-hidden rounded-xl cursor-pointer shadow-xl hover:shadow-2xl transition-all duration-500 ${study.color}`}
                         >
                             {/* Overlay with Content */}
                             <div className="absolute inset-0 z-10 p-12 flex flex-col justify-end bg-gradient-to-t from-black/80 via-black/20 to-transparent">

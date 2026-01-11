@@ -7,7 +7,7 @@ const ContactPage = () => {
     return (
         <div className="bg-white">
             {/* Hero */}
-            <section className="pt-32 pb-24 px-6 border-b border-gray-50">
+            <section className="pt-24 pb-16 px-6 border-b border-gray-50">
                 <div className="max-w-7xl mx-auto">
                     <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-8">
                         We Should Talk.
@@ -19,7 +19,7 @@ const ContactPage = () => {
             </section>
 
             {/* Main Content */}
-            <section className="py-24 px-6">
+            <section className="py-16 px-6">
                 <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-20">
 
                     {/* Info Side */}
