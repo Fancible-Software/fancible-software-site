@@ -9,8 +9,8 @@ const Hero = () => {
         <section className="relative pt-20 pb-16 px-6 overflow-hidden">
             <div className="max-w-7xl mx-auto relative z-10 text-center">
                 <motion.div
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
                     transition={{ duration: 0.6 }}
                 >
                     <h1 className="text-5xl md:text-8xl font-bold tracking-tight mb-8 leading-[1.1]" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.1)' }}>

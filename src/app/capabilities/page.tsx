@@ -67,8 +67,8 @@ const CapabilitiesPage = () => {
                     {pillars.map((pillar, idx) => (
                         <motion.div
                             key={idx}
-                            initial={{ opacity: 0, y: 10 }}
-                            whileInView={{ opacity: 1, y: 0 }}
+                            initial={{ opacity: 0 }}
+                            whileInView={{ opacity: 1 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.6, delay: idx * 0.08 }}
                             className="group p-8 rounded-2xl border border-gray-50 shadow-sm hover:shadow-xl transition-all duration-300 bg-white overflow-hidden relative"
@@ -126,8 +126,8 @@ const CapabilitiesPage = () => {
             {/* CTA */}
             <section className="py-24 px-6 bg-[#161a23] text-white">
                 <motion.div
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.8 }}
                     className="max-w-7xl mx-auto text-center"
