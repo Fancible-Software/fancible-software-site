@@ -166,11 +166,11 @@ export default function Home() {
                   <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-500" />
                 </div>
                 <div className="absolute inset-0 z-10 p-12 flex flex-col justify-end">
-                  <div className="mb-2 text-white font-bold uppercase tracking-widest text-xs">{study.client}</div>
-                  <h3 className="text-3xl font-bold text-white mb-6">{study.title}</h3>
+                  <div className="mb-2 text-white font-bold uppercase tracking-widest text-xs" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.4)' }}>{study.client}</div>
+                  <h3 className="text-3xl font-bold text-white mb-6" style={{ textShadow: '0 4px 16px rgba(0,0,0,0.5)' }}>{study.title}</h3>
                   <div className="flex items-center justify-between border-t border-white/20 pt-6">
-                    <span className="text-accent font-bold text-lg">{study.stat}</span>
-                    <span className="text-white font-semibold flex items-center gap-2 group-hover:translate-x-2 transition-transform">
+                    <span className="text-accent font-bold text-lg" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.6)' }}>{study.stat}</span>
+                    <span className="text-white font-semibold flex items-center gap-2 group-hover:translate-x-2 transition-transform" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.4)' }}>
                       View Project
                       <ArrowIcon />
                     </span>

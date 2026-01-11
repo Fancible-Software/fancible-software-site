@@ -13,7 +13,7 @@ const Hero = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
                 >
-                    <h1 className="text-5xl md:text-8xl font-bold tracking-tight mb-8 leading-[1.1]">
+                    <h1 className="text-5xl md:text-8xl font-bold tracking-tight mb-8 leading-[1.1]" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.1)' }}>
                         The <span className="relative inline-block px-2">
                             Performance
                             <svg className="absolute -top-3 -left-6 -right-6 -bottom-3 w-[calc(100%+48px)] h-[calc(100%+24px)] pointer-events-none overflow-visible" viewBox="0 0 431 120" fill="none" preserveAspectRatio="none">
@@ -30,7 +30,7 @@ const Hero = () => {
                         Software Agency
                     </h1>
 
-                    <p className="max-w-2xl mx-auto text-secondary text-lg md:text-xl mb-12 leading-relaxed">
+                    <p className="max-w-2xl mx-auto text-secondary text-lg md:text-xl mb-12 leading-relaxed" style={{ textShadow: '0 1px 4px rgba(0,0,0,0.08)' }}>
                         From architecture to scale, we build high-performing digital products for ambitious SaaS startups and enterprise agencies.
                     </p>
 

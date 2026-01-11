@@ -39,7 +39,7 @@ const OurWorkPage = () => {
             title: "Collaborative IDE Platform",
             desc: "Next-gen collaborative tools for remote engineering teams.",
             stat: "15k+ Monthly Active Users",
-            image: "/john-schnobrich-2FPjlAyMQTA-unsplash.jpg"
+            image: "/sean-pollock-PhYq704ffdA-unsplash.jpg"
         }
     ];
 
@@ -81,18 +81,18 @@ const OurWorkPage = () => {
 
                             {/* Overlay with Content */}
                             <div className="absolute inset-0 z-10 p-12 flex flex-col justify-end">
-                                <div className="mb-4 text-white/70 font-bold uppercase tracking-widest text-xs">
+                                <div className="mb-4 text-white/70 font-bold uppercase tracking-widest text-xs" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.4)' }}>
                                     {study.client}
                                 </div>
-                                <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 group-hover:-translate-y-2 transition-transform duration-500">
+                                <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 group-hover:-translate-y-2 transition-transform duration-500" style={{ textShadow: '0 4px 16px rgba(0,0,0,0.5)' }}>
                                     {study.title}
                                 </h2>
-                                <p className="text-white/80 max-w-md mb-8 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                                <p className="text-white/80 max-w-md mb-8 opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.4)' }}>
                                     {study.desc}
                                 </p>
                                 <div className="flex items-center justify-between border-t border-white/20 pt-8 mt-4">
-                                    <span className="text-accent font-bold text-lg">{study.stat}</span>
-                                    <span className="text-white font-semibold flex items-center gap-2 group-hover:translate-x-2 transition-transform">
+                                    <span className="text-accent font-bold text-lg" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.6)' }}>{study.stat}</span>
+                                    <span className="text-white font-semibold flex items-center gap-2 group-hover:translate-x-2 transition-transform" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.4)' }}>
                                         View Case Study
                                         <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
                                             <path d="M4.16663 10H15.8333" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />

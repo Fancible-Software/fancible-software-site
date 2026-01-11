@@ -17,10 +17,10 @@ const CompanyPage = () => {
                     />
                 </div>
                 <div className="max-w-7xl mx-auto relative z-10">
-                    <h1 className="text-5xl md:text-8xl font-bold tracking-tight mb-8">
+                    <h1 className="text-5xl md:text-8xl font-bold tracking-tight mb-8" style={{ textShadow: '0 2px 12px rgba(0,0,0,0.12)' }}>
                         Built for Performance.<br />Driven by People.
                     </h1>
-                    <p className="text-xl text-secondary max-w-3xl leading-relaxed">
+                    <p className="text-xl text-secondary max-w-3xl leading-relaxed" style={{ textShadow: '0 1px 4px rgba(0,0,0,0.08)' }}>
                         Fancible Software started with a simple belief: that enterprise software should be as intuitive as a consumer app and as powerful as the teams that use it.
                     </p>
                 </div>
