@@ -11,6 +11,65 @@ const ArrowIcon = () => (
   </svg>
 );
 
+const CapabilityCard = ({ title, desc, outcomes, delay = 0 }: { title: string; desc: string; outcomes: string[]; delay?: number }) => (
+  <motion.div
+    initial={{ opacity: 0 }}
+    whileInView={{ opacity: 1 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.6, delay }}
+    className="group cursor-default p-8 bg-white rounded-xl border border-gray-50 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+  >
+    <div className="w-12 h-12 mb-6 border border-gray-100 rounded-sm flex items-center justify-center group-hover:bg-accent group-hover:border-accent transition-colors">
+      <div className="w-6 h-6 border-2 border-foreground group-hover:border-white transition-colors" />
+    </div>
+    <h3 className="text-2xl font-bold mb-4 flex items-center gap-2 group-hover:text-accent transition-colors">
+      {title}
+      <ArrowIcon />
+    </h3>
+    <p className="text-secondary leading-relaxed mb-8">{desc}</p>
+    <div className="pt-6 border-t border-gray-50 uppercase text-[11px] font-bold tracking-widest text-gray-400 mb-4">Typical Outcomes</div>
+    <ul className="space-y-3">
+      {outcomes.map((o, i) => (
+        <li key={i} className="text-[14px] font-medium flex items-center gap-2">
+          <span className="w-1 h-1 bg-accent rounded-full" />
+          {o}
+        </li>
+      ))}
+    </ul>
+  </motion.div>
+);
+
+const SelectedWorkCard = ({ client, title, stat, image, delay = 0 }: { client: string; title: string; stat: string; image: string; delay?: number }) => (
+  <motion.div
+    initial={{ opacity: 0 }}
+    whileInView={{ opacity: 1 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.8, delay }}
+    className="group relative h-[500px] overflow-hidden rounded-xl cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-500"
+  >
+    <div className="absolute inset-0 transition-transform duration-700 group-hover:scale-105">
+      <Image
+        src={image}
+        alt={title}
+        fill
+        className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+      />
+      <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-500" />
+    </div>
+    <div className="absolute inset-0 z-10 p-12 flex flex-col justify-end">
+      <div className="mb-2 text-white font-bold uppercase tracking-widest text-xs" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.4)' }}>{client}</div>
+      <h3 className="text-3xl font-bold text-white mb-6" style={{ textShadow: '0 4px 16px rgba(0,0,0,0.5)' }}>{title}</h3>
+      <div className="flex items-center justify-between border-t border-white/20 pt-6">
+        <span className="text-accent font-bold text-lg" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.6)' }}>{stat}</span>
+        <span className="text-white font-semibold flex items-center gap-2 group-hover:translate-x-2 transition-transform" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.4)' }}>
+          View Project
+          <ArrowIcon />
+        </span>
+      </div>
+    </div>
+  </motion.div>
+);
+
 export default function Home() {
   return (
     <div>
@@ -57,59 +116,30 @@ export default function Home() {
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
-            {[
-              {
-                title: "Product Strategy",
-                desc: "We align your product vision with market opportunities and technical feasibility.",
-                outcomes: ["Market-Product Fit", "MVP Roadmap", "Growth Strategy"]
-              },
-              {
-                title: "UI/UX Design",
-                desc: "Human-centered design systems built for conversion and high-retention SaaS apps.",
-                outcomes: ["Unified Design System", "High Fidelity Prototypes", "User Testing"]
-              },
-              {
-                title: "Engineering",
-                desc: "Scalable, high-performance web and mobile applications built with Next.js and Cloud Native tech.",
-                outcomes: ["Clean Architecture", "Lightning Fast Performance", "API-First"]
-              },
-              {
-                title: "Marketing & Growth",
-                desc: "Data-driven performance marketing and optimization to ensure your business scales effectively.",
-                outcomes: ["Lead Generation", "Paid Media Strategy", "Conversion Optimization"]
-              }
-            ].map((service, idx) => (
-              <motion.div
-                key={`capability-card-${idx}`}
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-                className="group cursor-default p-8 bg-white rounded-xl border border-gray-50 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
-              >
-                <div className="w-12 h-12 mb-6 border border-gray-100 rounded-sm flex items-center justify-center group-hover:bg-accent group-hover:border-accent transition-colors">
-                  <div className="w-6 h-6 border-2 border-foreground group-hover:border-white transition-colors" />
-                </div>
-                <h3 className="text-2xl font-bold mb-4 flex items-center gap-2 group-hover:text-accent transition-colors">
-                  {service.title}
-                  <ArrowIcon />
-                </h3>
-                <p className="text-secondary leading-relaxed mb-8">
-                  {service.desc}
-                </p>
-                <div className="pt-6 border-t border-gray-50 uppercase text-[11px] font-bold tracking-widest text-gray-400 mb-4">
-                  Typical Outcomes
-                </div>
-                <ul className="space-y-3">
-                  {service.outcomes.map((o, i) => (
-                    <li key={i} className="text-[14px] font-medium flex items-center gap-2">
-                      <span className="w-1 h-1 bg-accent rounded-full" />
-                      {o}
-                    </li>
-                  ))}
-                </ul>
-              </motion.div>
-            ))}
+            <CapabilityCard
+              title="Product Strategy"
+              desc="We align your product vision with market opportunities and technical feasibility."
+              outcomes={["Market-Product Fit", "MVP Roadmap", "Growth Strategy"]}
+              delay={0}
+            />
+            <CapabilityCard
+              title="UI/UX Design"
+              desc="Human-centered design systems built for conversion and high-retention SaaS apps."
+              outcomes={["Unified Design System", "High Fidelity Prototypes", "User Testing"]}
+              delay={0.1}
+            />
+            <CapabilityCard
+              title="Engineering"
+              desc="Scalable, high-performance web and mobile applications built with Next.js and Cloud Native tech."
+              outcomes={["Clean Architecture", "Lightning Fast Performance", "API-First"]}
+              delay={0.3}
+            />
+            <CapabilityCard
+              title="Marketing & Growth"
+              desc="Data-driven performance marketing and optimization to ensure your business scales effectively."
+              outcomes={["Lead Generation", "Paid Media Strategy", "Conversion Optimization"]}
+              delay={0.4}
+            />
           </div>
         </div>
       </section>
@@ -134,50 +164,20 @@ export default function Home() {
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-            {[
-              {
-                client: "FinTech OS",
-                title: "Revolutionizing Digital Banking",
-                stat: "45% Engagement Boost",
-                image: "/airfocus-K_VeavYEfdA-unsplash.jpg"
-              },
-              {
-                client: "Prisma Cloud",
-                title: "Visual Data Exploration",
-                stat: "3.5x Speed Increase",
-                image: "/alesia-kazantceva-XLm6-fPwK5Q-unsplash.jpg"
-              }
-            ].map((study, idx) => (
-              <motion.div
-                key={`selected-work-${idx}`}
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: idx * 0.2 }}
-                className="group relative h-[500px] overflow-hidden rounded-xl cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-500"
-              >
-                <div className="absolute inset-0 transition-transform duration-700 group-hover:scale-105">
-                  <Image
-                    src={study.image}
-                    alt={study.title}
-                    fill
-                    className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
-                  />
-                  <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-500" />
-                </div>
-                <div className="absolute inset-0 z-10 p-12 flex flex-col justify-end">
-                  <div className="mb-2 text-white font-bold uppercase tracking-widest text-xs" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.4)' }}>{study.client}</div>
-                  <h3 className="text-3xl font-bold text-white mb-6" style={{ textShadow: '0 4px 16px rgba(0,0,0,0.5)' }}>{study.title}</h3>
-                  <div className="flex items-center justify-between border-t border-white/20 pt-6">
-                    <span className="text-accent font-bold text-lg" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.6)' }}>{study.stat}</span>
-                    <span className="text-white font-semibold flex items-center gap-2 group-hover:translate-x-2 transition-transform" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.4)' }}>
-                      View Project
-                      <ArrowIcon />
-                    </span>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
+            <SelectedWorkCard
+              client="FinTech OS"
+              title="Revolutionizing Digital Banking"
+              stat="45% Engagement Boost"
+              image="/airfocus-K_VeavYEfdA-unsplash.jpg"
+              delay={0}
+            />
+            <SelectedWorkCard
+              client="Prisma Cloud"
+              title="Visual Data Exploration"
+              stat="3.5x Speed Increase"
+              image="/alesia-kazantceva-XLm6-fPwK5Q-unsplash.jpg"
+              delay={0.2}
+            />
           </div>
         </div>
       </section>

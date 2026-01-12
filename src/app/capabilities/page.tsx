@@ -3,6 +3,62 @@
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 
+const CapabilityCard = ({ title, tagline, desc, subItems, outcomes, image, delay = 0 }: { title: string; tagline: string; desc: string; subItems: string[]; outcomes: string[]; image: string; delay?: number }) => (
+    <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6, delay }}
+        className="group p-8 rounded-2xl border border-gray-50 shadow-sm hover:shadow-xl transition-all duration-300 bg-white overflow-hidden relative"
+    >
+        <div className="absolute top-0 right-0 w-32 h-32 opacity-10 group-hover:opacity-30 transition-opacity">
+            <Image
+                src={image}
+                alt={title}
+                fill
+                className="object-cover"
+            />
+        </div>
+        <div className="flex items-center gap-4 mb-8">
+            <div className="w-16 h-1 bg-accent" />
+            <h2 className="text-3xl font-bold tracking-tight">{title}</h2>
+        </div>
+        <p className="text-xl font-medium mb-6 leading-snug">
+            {tagline}
+        </p>
+        <p className="text-secondary leading-relaxed mb-12">
+            {desc}
+        </p>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-12 pt-12 border-t border-gray-100">
+            <div>
+                <h4 className="text-[11px] font-bold uppercase tracking-widest text-gray-400 mb-6">Expertise</h4>
+                <ul className="space-y-4">
+                    {subItems.map((item, i) => (
+                        <li key={i} className="text-[15px] font-semibold flex items-center gap-2">
+                            <span className="w-1 h-1 bg-black rounded-full" />
+                            {item}
+                        </li>
+                    ))}
+                </ul>
+            </div>
+            <div>
+                <h4 className="text-[11px] font-bold uppercase tracking-widest text-gray-400 mb-6">Typical Outcomes</h4>
+                <ul className="space-y-4">
+                    {outcomes.map((item, i) => (
+                        <li key={i} className="text-[15px] text-secondary flex items-center gap-2">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <path d="M13.3334 4L6.00008 11.3333L2.66675 8" stroke="#ea5b0c" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                            </svg>
+                            {item}
+                        </li>
+                    ))}
+                </ul>
+            </div>
+        </div>
+    </motion.div>
+);
+
 const CapabilitiesPage = () => {
     const pillars = [
         {
@@ -64,62 +120,51 @@ const CapabilitiesPage = () => {
             {/* Pillars Grid */}
             <section className="py-16 px-6">
                 <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-16">
-                    {pillars.map((pillar, idx) => (
-                        <motion.div
-                            key={`pillar-card-${idx}`}
-                            initial={{ opacity: 0 }}
-                            whileInView={{ opacity: 1 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.6, delay: idx * 0.08 }}
-                            className="group p-8 rounded-2xl border border-gray-50 shadow-sm hover:shadow-xl transition-all duration-300 bg-white overflow-hidden relative"
-                        >
-                            <div className="absolute top-0 right-0 w-32 h-32 opacity-10 group-hover:opacity-30 transition-opacity">
-                                <Image
-                                    src={pillar.image}
-                                    alt={pillar.title}
-                                    fill
-                                    className="object-cover"
-                                />
-                            </div>
-                            <div className="flex items-center gap-4 mb-8">
-                                <div className="w-16 h-1 bg-accent" />
-                                <h2 className="text-3xl font-bold tracking-tight">{pillar.title}</h2>
-                            </div>
-                            <p className="text-xl font-medium mb-6 leading-snug">
-                                {pillar.tagline}
-                            </p>
-                            <p className="text-secondary leading-relaxed mb-12">
-                                {pillar.desc}
-                            </p>
-
-                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-12 pt-12 border-t border-gray-100">
-                                <div>
-                                    <h4 className="text-[11px] font-bold uppercase tracking-widest text-gray-400 mb-6">Expertise</h4>
-                                    <ul className="space-y-4">
-                                        {pillar.subItems.map((item, i) => (
-                                            <li key={i} className="text-[15px] font-semibold flex items-center gap-2">
-                                                <span className="w-1 h-1 bg-black rounded-full" />
-                                                {item}
-                                            </li>
-                                        ))}
-                                    </ul>
-                                </div>
-                                <div>
-                                    <h4 className="text-[11px] font-bold uppercase tracking-widest text-gray-400 mb-6">Typical Outcomes</h4>
-                                    <ul className="space-y-4">
-                                        {pillar.outcomes.map((item, i) => (
-                                            <li key={i} className="text-[15px] text-secondary flex items-center gap-2">
-                                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                                    <path d="M13.3334 4L6.00008 11.3333L2.66675 8" stroke="#ea5b0c" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                                                </svg>
-                                                {item}
-                                            </li>
-                                        ))}
-                                    </ul>
-                                </div>
-                            </div>
-                        </motion.div>
-                    ))}
+                        <CapabilityCard
+                            title={pillars[0].title}
+                            tagline={pillars[0].tagline}
+                            desc={pillars[0].desc}
+                            subItems={pillars[0].subItems}
+                            outcomes={pillars[0].outcomes}
+                            image={pillars[0].image}
+                            delay={0}
+                        />
+                        <CapabilityCard
+                            title={pillars[1].title}
+                            tagline={pillars[1].tagline}
+                            desc={pillars[1].desc}
+                            subItems={pillars[1].subItems}
+                            outcomes={pillars[1].outcomes}
+                            image={pillars[1].image}
+                            delay={0.08}
+                        />
+                        <CapabilityCard
+                            title={pillars[2].title}
+                            tagline={pillars[2].tagline}
+                            desc={pillars[2].desc}
+                            subItems={pillars[2].subItems}
+                            outcomes={pillars[2].outcomes}
+                            image={pillars[2].image}
+                            delay={0.16}
+                        />
+                        <CapabilityCard
+                            title={pillars[3].title}
+                            tagline={pillars[3].tagline}
+                            desc={pillars[3].desc}
+                            subItems={pillars[3].subItems}
+                            outcomes={pillars[3].outcomes}
+                            image={pillars[3].image}
+                            delay={0.24}
+                        />
+                        <CapabilityCard
+                            title={pillars[4].title}
+                            tagline={pillars[4].tagline}
+                            desc={pillars[4].desc}
+                            subItems={pillars[4].subItems}
+                            outcomes={pillars[4].outcomes}
+                            image={pillars[4].image}
+                            delay={0.32}
+                        />
                 </div>
             </section>
 
