@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { Menu, X, ArrowRight } from 'lucide-react';
 import { motion } from 'motion/react';
@@ -38,15 +39,18 @@ const Navbar = () => {
 
     return (
         <nav
-            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-white/80 backdrop-blur-md border-b border-gray-100 py-4 shadow-sm' : 'bg-transparent py-6'
+            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-white/80 backdrop-blur-md border-b border-gray-100 py-0 shadow-sm' : 'bg-transparent py-6'
                 }`}
         >
             <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
                 <Link href="/" className="flex items-center gap-2 group">
-                    <div className="w-8 h-8 bg-black flex items-center justify-center rounded-sm group-hover:bg-accent transition-colors">
-                        <span className="text-white font-bold text-xl leading-none">F</span>
-                    </div>
-                    <span className="text-xl font-bold tracking-tight text-foreground">Fancible</span>
+                    <Image
+                        src="/fancible_logo.png"
+                        alt="Fancible"
+                        width={110}
+                        height={110}
+                        className="rounded-sm object-contain group-hover:opacity-90 transition-opacity"
+                    />
                 </Link>
 
                 {/* Desktop Nav */}
