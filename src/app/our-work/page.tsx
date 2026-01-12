@@ -65,8 +65,9 @@ const OurWorkPage = () => {
                             key={idx}
                             initial={{ opacity: 0 }}
                             whileInView={{ opacity: 1 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: idx * 0.08 }}
+                            viewport={{ once: true, amount: 0.3 }}
+                            transition={{ duration: 0.5, delay: idx * 0.15 }}
+                            style={{ willChange: 'opacity' }}
                             className="group relative h-[600px] overflow-hidden rounded-xl cursor-pointer shadow-xl hover:shadow-2xl transition-all duration-500"
                         >
                             <div className="absolute inset-0 transition-transform duration-700 group-hover:scale-105">
