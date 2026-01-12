@@ -39,7 +39,7 @@ const Navbar = () => {
 
     return (
         <nav
-            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-white/80 backdrop-blur-md border-b border-gray-100 py-0 shadow-sm' : 'bg-transparent py-6'
+            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-white/80 backdrop-blur-md border-b border-gray-100 py-1 shadow-sm' : 'bg-transparent py-6'
                 }`}
         >
             <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
@@ -47,8 +47,8 @@ const Navbar = () => {
                     <Image
                         src="/fancible_logo.png"
                         alt="Fancible"
-                        width={110}
-                        height={110}
+                        width={70}
+                        height={70}
                         className="rounded-sm object-contain group-hover:opacity-90 transition-opacity"
                     />
                 </Link>
