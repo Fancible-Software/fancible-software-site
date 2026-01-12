@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
+import dynamic from 'next/dynamic';
 import { motion } from 'motion/react';
 import Hero from '@/components/Hero';
 
@@ -11,64 +12,44 @@ const ArrowIcon = () => (
   </svg>
 );
 
-const CapabilityCard = ({ title, desc, outcomes, delay = 0 }: { title: string; desc: string; outcomes: string[]; delay?: number }) => (
-  <motion.div
-    initial={{ opacity: 0 }}
-    whileInView={{ opacity: 1 }}
-    viewport={{ once: true }}
-    transition={{ duration: 0.6, delay }}
-    className="group cursor-default p-8 bg-white rounded-xl border border-gray-50 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
-  >
-    <div className="w-12 h-12 mb-6 border border-gray-100 rounded-sm flex items-center justify-center group-hover:bg-accent group-hover:border-accent transition-colors">
-      <div className="w-6 h-6 border-2 border-foreground group-hover:border-white transition-colors" />
-    </div>
-    <h3 className="text-2xl font-bold mb-4 flex items-center gap-2 group-hover:text-accent transition-colors">
-      {title}
-      <ArrowIcon />
-    </h3>
-    <p className="text-secondary leading-relaxed mb-8">{desc}</p>
-    <div className="pt-6 border-t border-gray-50 uppercase text-[11px] font-bold tracking-widest text-gray-400 mb-4">Typical Outcomes</div>
-    <ul className="space-y-3">
-      {outcomes.map((o, i) => (
-        <li key={i} className="text-[14px] font-medium flex items-center gap-2">
-          <span className="w-1 h-1 bg-accent rounded-full" />
-          {o}
-        </li>
-      ))}
-    </ul>
-  </motion.div>
-);
+const CapabilityCard = dynamic(() => import('@/components/CapabilityCard'), { ssr: false, loading: () => <div className="h-40 bg-muted animate-pulse rounded" /> });
 
-const SelectedWorkCard = ({ client, title, stat, image, delay = 0 }: { client: string; title: string; stat: string; image: string; delay?: number }) => (
-  <motion.div
-    initial={{ opacity: 0 }}
-    whileInView={{ opacity: 1 }}
-    viewport={{ once: true }}
-    transition={{ duration: 0.8, delay }}
-    className="group relative h-[500px] overflow-hidden rounded-xl cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-500"
-  >
-    <div className="absolute inset-0 transition-transform duration-700 group-hover:scale-105">
-      <Image
-        src={image}
-        alt={title}
-        fill
-        className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
-      />
-      <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-500" />
-    </div>
-    <div className="absolute inset-0 z-10 p-12 flex flex-col justify-end">
-      <div className="mb-2 text-white font-bold uppercase tracking-widest text-xs" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.4)' }}>{client}</div>
-      <h3 className="text-3xl font-bold text-white mb-6" style={{ textShadow: '0 4px 16px rgba(0,0,0,0.5)' }}>{title}</h3>
-      <div className="flex items-center justify-between border-t border-white/20 pt-6">
-        <span className="text-accent font-bold text-lg" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.6)' }}>{stat}</span>
-        <span className="text-white font-semibold flex items-center gap-2 group-hover:translate-x-2 transition-transform" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.4)' }}>
-          View Project
-          <ArrowIcon />
-        </span>
-      </div>
-    </div>
-  </motion.div>
-);
+const SelectedWorkCard = dynamic(() => import('@/components/SelectedWorkCard'), { ssr: false, loading: () => <div className="h-60 bg-muted animate-pulse rounded" /> });
+
+const pillars = [
+  {
+    title: "Product Strategy",
+    tagline: "Bridging the gap between vision and market success.",
+    desc: "Our strategic approach ensures your SaaS product isn't just built, but positioned for long-term growth and scalability.",
+    subItems: ["MVP Roadmap & Prioritization", "Market & Competitive Analysis", "Monetization Strategy", "GTM Execution"],
+    outcomes: ["Clear Product Direction", "Optimized Feature Set", "Lower Time-to-Market"],
+    image: "/icons8-team-yTwXpLO5HAA-unsplash.jpg",
+  },
+  {
+    title: "UX/UI Design",
+    tagline: "Human-centered design for high-performance SaaS.",
+    desc: "We design intuitive, scalable interfaces that reduce friction and drive user retention for complex web and mobile platforms.",
+    subItems: ["SaaS Design Systems", "High-Fidelity Prototyping", "User Journey Mapping", "Usability Audit & Optimization"],
+    outcomes: ["Unified Visual Language", "Increased User Engagement", "Reduced Support Needs"],
+    image: "/kaitlyn-baker-vZJdYl5JVXY-unsplash.jpg",
+  },
+  {
+    title: "Engineering",
+    tagline: "Precision engineering for mission-critical apps.",
+    desc: "From Next.js frontends to robust cloud-native backends, we build performant, secure, and scalable digital products.",
+    subItems: ["Full-Stack Next.js Dev", "API-First Architecture", "Cloud Native (AWS/GCP)", "DevOps & CI/CD Pipelines"],
+    outcomes: ["Scalable Infrastructure", "High Page Speed/Performance", "Clean, Maintainable Code"],
+    image: "/sean-pollock-PhYq704ffdA-unsplash.jpg",
+  },
+  {
+    title: "Digital Marketing",
+    tagline: "High-performance growth for ambitious SMBs.",
+    desc: "Expert performance marketing solutions designed to drive leads, increase conversions, and maximize your digital footprint.",
+    subItems: ["Search Engine Marketing (SEM)", "Targeted Paid Social Ads", "Data-Driven Content Strategy", "Lead Gen & Email Automation"],
+    outcomes: ["Consistent Lead Pipeline", "Positive ROI/Ad Spend", "Increased Brand Authority"],
+    image: "/austin-distel-_S7-KX8geL0-unsplash.jpg",
+  },
+];
 
 export default function Home() {
   return (
@@ -117,28 +98,40 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
             <CapabilityCard
-              title="Product Strategy"
-              desc="We align your product vision with market opportunities and technical feasibility."
-              outcomes={["Market-Product Fit", "MVP Roadmap", "Growth Strategy"]}
+              title={pillars[0].title}
+              tagline={pillars[0].tagline}
+              desc={pillars[0].desc}
+              subItems={pillars[0].subItems}
+              outcomes={pillars[0].outcomes}
+              image={pillars[0].image}
               delay={0}
             />
             <CapabilityCard
-              title="UI/UX Design"
-              desc="Human-centered design systems built for conversion and high-retention SaaS apps."
-              outcomes={["Unified Design System", "High Fidelity Prototypes", "User Testing"]}
-              delay={0.1}
+              title={pillars[1].title}
+              tagline={pillars[1].tagline}
+              desc={pillars[1].desc}
+              subItems={pillars[1].subItems}
+              outcomes={pillars[1].outcomes}
+              image={pillars[1].image}
+              delay={0.08}
             />
             <CapabilityCard
-              title="Engineering"
-              desc="Scalable, high-performance web and mobile applications built with Next.js and Cloud Native tech."
-              outcomes={["Clean Architecture", "Lightning Fast Performance", "API-First"]}
-              delay={0.3}
+              title={pillars[2].title}
+              tagline={pillars[2].tagline}
+              desc={pillars[2].desc}
+              subItems={pillars[2].subItems}
+              outcomes={pillars[2].outcomes}
+              image={pillars[2].image}
+              delay={0.16}
             />
             <CapabilityCard
-              title="Marketing & Growth"
-              desc="Data-driven performance marketing and optimization to ensure your business scales effectively."
-              outcomes={["Lead Generation", "Paid Media Strategy", "Conversion Optimization"]}
-              delay={0.4}
+              title={pillars[3].title}
+              tagline={pillars[3].tagline}
+              desc={pillars[3].desc}
+              subItems={pillars[3].subItems}
+              outcomes={pillars[3].outcomes}
+              image={pillars[3].image}
+              delay={0.24}
             />
           </div>
         </div>
