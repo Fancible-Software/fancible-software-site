@@ -66,7 +66,7 @@ const CapabilitiesPage = () => {
                 <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-16">
                     {pillars.map((pillar, idx) => (
                         <motion.div
-                            key={idx}
+                            key={`pillar-card-${idx}`}
                             initial={{ opacity: 0 }}
                             whileInView={{ opacity: 1 }}
                             viewport={{ once: true }}

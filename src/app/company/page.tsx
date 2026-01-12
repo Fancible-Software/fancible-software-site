@@ -102,7 +102,7 @@ const CompanyPage = () => {
                             { title: "Relentless growth.", desc: "We iterate fast and scale faster. Our process is designed to find product-market fit and exploit it." }
                         ].map((value, idx) => (
                             <motion.div
-                                key={idx}
+                                key={`value-card-${idx}`}
                                 initial={{ opacity: 0 }}
                                 whileInView={{ opacity: 1 }}
                                 viewport={{ once: true }}

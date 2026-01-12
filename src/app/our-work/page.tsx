@@ -62,7 +62,7 @@ const OurWorkPage = () => {
                 <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
                     {caseStudies.map((study, idx) => (
                         <motion.div
-                            key={idx}
+                            key={`case-study-${idx}`}
                             initial={{ opacity: 0 }}
                             whileInView={{ opacity: 1 }}
                             viewport={{ once: true, amount: 0.3 }}

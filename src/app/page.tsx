@@ -80,7 +80,7 @@ export default function Home() {
               }
             ].map((service, idx) => (
               <motion.div
-                key={idx}
+                key={`capability-card-${idx}`}
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true, amount: 0.3 }}
@@ -150,7 +150,7 @@ export default function Home() {
               }
             ].map((study, idx) => (
               <motion.div
-                key={idx}
+                key={`selected-work-${idx}`}
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
@@ -202,7 +202,7 @@ export default function Home() {
               { step: "03", title: "Engineering", desc: "High-performance full-stack development with a focus on scale." }
             ].map((p, i) => (
               <motion.div
-                key={i}
+                key={`process-step-${i}`}
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
