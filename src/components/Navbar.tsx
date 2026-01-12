@@ -4,12 +4,13 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Menu, X, ArrowRight } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'motion/react';
 
 const Navbar = () => {
     const pathname = usePathname();
     const [isOpen, setIsOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
+    const [shouldRender, setShouldRender] = useState(false);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -18,6 +19,15 @@ const Navbar = () => {
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
+
+    useEffect(() => {
+        if (isOpen) {
+            setShouldRender(true);
+            return;
+        }
+        const t = setTimeout(() => setShouldRender(false), 200);
+        return () => clearTimeout(t);
+    }, [isOpen]);
 
     const navLinks = [
         { name: 'Our Work', href: '/our-work' },
@@ -94,14 +104,13 @@ const Navbar = () => {
             </div>
 
             {/* Mobile Menu */}
-            <AnimatePresence>
-                {isOpen && (
-                    <motion.div
-                        initial={{ opacity: 0, y: -20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -20 }}
-                        className="absolute top-full left-0 right-0 bg-white border-b border-gray-100 p-6 md:hidden shadow-xl"
-                    >
+            {shouldRender && (
+                <motion.div
+                    initial={{ opacity: 0, y: -20 }}
+                    animate={isOpen ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
+                    transition={{ duration: 0.2 }}
+                    className="absolute top-full left-0 right-0 bg-white border-b border-gray-100 p-6 md:hidden shadow-xl"
+                >
                         <div className="flex flex-col gap-6">
                             {navLinks.map((link) => {
                                 const isActive = pathname === link.href;
@@ -133,9 +142,8 @@ const Navbar = () => {
                                 <ArrowRight className="w-5 h-5" />
                             </Link>
                         </div>
-                    </motion.div>
-                )}
-            </AnimatePresence>
+                </motion.div>
+            )}
         </nav>
     );
 };
