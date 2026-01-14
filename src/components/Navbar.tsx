@@ -33,6 +33,7 @@ const Navbar = () => {
     const navLinks = [
         { name: 'Our Work', href: '/our-work' },
         { name: 'Capabilities', href: '/capabilities' },
+        { name: 'Technologies', href: '/technologies' },
         { name: 'Company', href: '/company' },
         // { name: 'Careers', href: '/careers' },
     ];
@@ -115,37 +116,37 @@ const Navbar = () => {
                     transition={{ duration: 0.2 }}
                     className="absolute top-full left-0 right-0 bg-white border-b border-gray-100 p-6 md:hidden shadow-xl"
                 >
-                        <div className="flex flex-col gap-6">
-                            {navLinks.map((link) => {
-                                const isActive = pathname === link.href;
-                                return (
-                                    <Link
-                                        key={link.name}
-                                        href={link.href}
-                                        className={`relative text-lg font-medium border-b border-gray-50 pb-2 flex items-center justify-between ${isActive ? 'text-accent' : 'text-foreground'
-                                            }`}
-                                        onClick={() => setIsOpen(false)}
-                                    >
-                                        {link.name}
-                                        {isActive && (
-                                            <motion.div
-                                                initial={{ scale: 0 }}
-                                                animate={{ scale: 1 }}
-                                                className="w-2 h-2 bg-accent rounded-full"
-                                            />
-                                        )}
-                                    </Link>
-                                );
-                            })}
-                            <Link
-                                href="/contact"
-                                className="text-lg font-bold text-accent flex items-center gap-2"
-                                onClick={() => setIsOpen(false)}
-                            >
-                                Contact Us
-                                <ArrowRight className="w-5 h-5" />
-                            </Link>
-                        </div>
+                    <div className="flex flex-col gap-6">
+                        {navLinks.map((link) => {
+                            const isActive = pathname === link.href;
+                            return (
+                                <Link
+                                    key={link.name}
+                                    href={link.href}
+                                    className={`relative text-lg font-medium border-b border-gray-50 pb-2 flex items-center justify-between ${isActive ? 'text-accent' : 'text-foreground'
+                                        }`}
+                                    onClick={() => setIsOpen(false)}
+                                >
+                                    {link.name}
+                                    {isActive && (
+                                        <motion.div
+                                            initial={{ scale: 0 }}
+                                            animate={{ scale: 1 }}
+                                            className="w-2 h-2 bg-accent rounded-full"
+                                        />
+                                    )}
+                                </Link>
+                            );
+                        })}
+                        <Link
+                            href="/contact"
+                            className="text-lg font-bold text-accent flex items-center gap-2"
+                            onClick={() => setIsOpen(false)}
+                        >
+                            Contact Us
+                            <ArrowRight className="w-5 h-5" />
+                        </Link>
+                    </div>
                 </motion.div>
             )}
         </nav>
