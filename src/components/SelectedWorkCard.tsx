@@ -1,7 +1,7 @@
 "use client";
 
 import Image from 'next/image';
-import { motion } from 'framer-motion';
+import { useInView } from '@/hooks/useInView';
 import React from 'react';
 
 type Props = {
@@ -13,13 +13,13 @@ type Props = {
 };
 
 export default function SelectedWorkCard({ client, title, stat, image, delay = 0 }: Props) {
+  const [ref, isInView] = useInView<HTMLDivElement>({ once: true });
+
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.8, delay }}
-      className="group relative h-[500px] overflow-hidden rounded-xl cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-500"
+    <div
+      ref={ref}
+      style={{ animationDelay: `${delay}s` }}
+      className={`group relative h-[500px] overflow-hidden rounded-xl cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-500 ${isInView ? 'animate-fade-in-up' : 'opacity-0'}`}
     >
       <div className="absolute inset-0 transition-transform duration-700 group-hover:scale-105">
         <Image src={image} alt={title} fill className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700" />
@@ -35,6 +35,6 @@ export default function SelectedWorkCard({ client, title, stat, image, delay = 0
           </span>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 }

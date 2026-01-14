@@ -1,7 +1,7 @@
 "use client";
 
 import Image from 'next/image';
-import { motion } from 'motion/react';
+import { useInView } from '@/hooks/useInView';
 import React from 'react';
 
 type Props = {
@@ -15,13 +15,13 @@ type Props = {
 };
 
 export default function CapabilityCard({ title, tagline, desc, subItems = [], outcomes = [], image, delay = 0 }: Props) {
+  const [ref, isInView] = useInView<HTMLDivElement>({ once: true });
+
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.6, delay }}
-      className="group p-8 rounded-2xl border border-gray-50 shadow-sm hover:shadow-xl transition-all duration-300 bg-white overflow-hidden relative"
+    <div
+      ref={ref}
+      style={{ animationDelay: `${delay}s` }}
+      className={`group p-8 rounded-2xl border border-gray-50 shadow-sm hover:shadow-xl transition-all duration-300 bg-white overflow-hidden relative ${isInView ? 'animate-fade-in-up' : 'opacity-0'}`}
     >
       <div className="absolute top-0 right-0 w-32 h-32 opacity-10 group-hover:opacity-30 transition-opacity">
         <Image src={image} alt={title} fill className="object-cover" />
@@ -55,6 +55,6 @@ export default function CapabilityCard({ title, tagline, desc, subItems = [], ou
           </ul>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 }
