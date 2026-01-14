@@ -13,7 +13,7 @@ const ArrowIcon = () => (
 );
 
 const CapabilityCard = dynamic(() => import('@/components/CapabilityCard'), { ssr: false, loading: () => <div className="h-40 bg-muted animate-pulse rounded" /> });
-
+const HomeTechnologies = dynamic(() => import('@/components/HomeTechnologies'), { ssr: false, loading: () => <div className="h-60 bg-muted animate-pulse rounded" /> });
 const SelectedWorkCard = dynamic(() => import('@/components/SelectedWorkCard'), { ssr: false, loading: () => <div className="h-60 bg-muted animate-pulse rounded" /> });
 
 const pillars = [
@@ -136,6 +136,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Technologies Section */}
+      <HomeTechnologies />
 
       {/* Selected Work Section */}
       <section className="py-16 px-6 bg-gray-50">
