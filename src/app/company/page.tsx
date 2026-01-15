@@ -7,7 +7,7 @@ const CompanyPage = () => {
     return (
         <div className="bg-white">
             {/* Hero */}
-            <section className="pt-32 pb-24 px-6 border-b border-gray-50 relative overflow-hidden bg-white">
+            <section className="pt-12 pb-24 px-6 border-b border-gray-50 relative overflow-hidden bg-white">
                 <div className="absolute top-0 right-0 w-1/3 h-full opacity-10 pointer-events-none">
                     <Image
                         src="/benjamin-child-GWe0dlVD9e0-unsplash.jpg"

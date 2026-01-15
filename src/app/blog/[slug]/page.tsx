@@ -24,7 +24,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
     if (!post) {
         return (
-            <main className="pt-32 pb-24 px-6 text-center">
+            <main className="pt-12 pb-24 px-6 text-center">
                 <h1 className="text-4xl font-bold mb-4">Post not found</h1>
                 <Link href="/blog" className="text-accent hover:underline">Return to Blog</Link>
             </main>
@@ -32,7 +32,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     }
 
     return (
-        <main className="pt-32 pb-24 px-6 min-h-screen bg-white">
+        <main className="pt-12 pb-24 px-6 min-h-screen bg-white">
             <article className="max-w-3xl mx-auto">
                 <Link href="/blog" className="inline-flex items-center gap-2 text-secondary hover:text-accent mb-8 transition-colors font-medium">
                     <ArrowLeft className="w-4 h-4" />

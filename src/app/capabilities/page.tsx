@@ -53,7 +53,7 @@ const CapabilitiesPage = () => {
     return (
         <div className="bg-white">
             {/* Hero */}
-            <section className="pt-24 pb-12 px-6 border-b border-gray-50">
+            <section className="pt-12 pb-12 px-6 border-b border-gray-50">
                 <div className="max-w-7xl mx-auto">
                     <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-8">
                         Capabilities.
@@ -67,51 +67,51 @@ const CapabilitiesPage = () => {
             {/* Pillars Grid */}
             <section className="py-16 px-6">
                 <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-16">
-                        <CapabilityCard
-                            title={pillars[0].title}
-                            tagline={pillars[0].tagline}
-                            desc={pillars[0].desc}
-                            subItems={pillars[0].subItems}
-                            outcomes={pillars[0].outcomes}
-                            image={pillars[0].image}
-                            delay={0}
-                        />
-                        <CapabilityCard
-                            title={pillars[1].title}
-                            tagline={pillars[1].tagline}
-                            desc={pillars[1].desc}
-                            subItems={pillars[1].subItems}
-                            outcomes={pillars[1].outcomes}
-                            image={pillars[1].image}
-                            delay={0.08}
-                        />
-                        <CapabilityCard
-                            title={pillars[2].title}
-                            tagline={pillars[2].tagline}
-                            desc={pillars[2].desc}
-                            subItems={pillars[2].subItems}
-                            outcomes={pillars[2].outcomes}
-                            image={pillars[2].image}
-                            delay={0.16}
-                        />
-                        <CapabilityCard
-                            title={pillars[3].title}
-                            tagline={pillars[3].tagline}
-                            desc={pillars[3].desc}
-                            subItems={pillars[3].subItems}
-                            outcomes={pillars[3].outcomes}
-                            image={pillars[3].image}
-                            delay={0.24}
-                        />
-                        <CapabilityCard
-                            title={pillars[4].title}
-                            tagline={pillars[4].tagline}
-                            desc={pillars[4].desc}
-                            subItems={pillars[4].subItems}
-                            outcomes={pillars[4].outcomes}
-                            image={pillars[4].image}
-                            delay={0.32}
-                        />
+                    <CapabilityCard
+                        title={pillars[0].title}
+                        tagline={pillars[0].tagline}
+                        desc={pillars[0].desc}
+                        subItems={pillars[0].subItems}
+                        outcomes={pillars[0].outcomes}
+                        image={pillars[0].image}
+                        delay={0}
+                    />
+                    <CapabilityCard
+                        title={pillars[1].title}
+                        tagline={pillars[1].tagline}
+                        desc={pillars[1].desc}
+                        subItems={pillars[1].subItems}
+                        outcomes={pillars[1].outcomes}
+                        image={pillars[1].image}
+                        delay={0.08}
+                    />
+                    <CapabilityCard
+                        title={pillars[2].title}
+                        tagline={pillars[2].tagline}
+                        desc={pillars[2].desc}
+                        subItems={pillars[2].subItems}
+                        outcomes={pillars[2].outcomes}
+                        image={pillars[2].image}
+                        delay={0.16}
+                    />
+                    <CapabilityCard
+                        title={pillars[3].title}
+                        tagline={pillars[3].tagline}
+                        desc={pillars[3].desc}
+                        subItems={pillars[3].subItems}
+                        outcomes={pillars[3].outcomes}
+                        image={pillars[3].image}
+                        delay={0.24}
+                    />
+                    <CapabilityCard
+                        title={pillars[4].title}
+                        tagline={pillars[4].tagline}
+                        desc={pillars[4].desc}
+                        subItems={pillars[4].subItems}
+                        outcomes={pillars[4].outcomes}
+                        image={pillars[4].image}
+                        delay={0.32}
+                    />
                 </div>
             </section>
 

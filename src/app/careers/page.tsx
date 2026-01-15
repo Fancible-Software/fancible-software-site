@@ -15,7 +15,7 @@ const CareersPage = () => {
     return (
         <div className="bg-white">
             {/* Hero */}
-            <section className="pt-24 pb-12 px-6 border-b border-gray-50">
+            <section className="pt-12 pb-12 px-6 border-b border-gray-50">
                 <div className="max-w-7xl mx-auto">
                     <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-8">
                         Build the Future of SaaS.

@@ -8,7 +8,7 @@ const ContactPage = () => {
     return (
         <div className="bg-white">
             {/* Hero */}
-            <section className="pt-24 pb-16 px-6 border-b border-gray-50">
+            <section className="pt-12 pb-16 px-6 border-b border-gray-50">
                 <div className="max-w-7xl mx-auto">
                     <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-8">
                         We Should Talk.
