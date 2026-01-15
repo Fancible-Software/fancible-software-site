@@ -1,17 +1,18 @@
 @import "tailwindcss";
+@plugin '@tailwindcss/typography';
 
 :root {
   --background: #ffffff;
   --foreground: #161a23;
   --color-accent: #ea5b0c;
   --color-secondary: #595959;
-  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
 }
 
 @theme {
   --color-accent: #ea5b0c;
   --color-secondary: #595959;
-  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
 }
 
 body {
@@ -33,7 +34,12 @@ h6 {
 }
 
 .performance-glow {
-  background: radial-gradient(circle at top right, rgba(234, 91, 12, 0.05), transparent 40%),
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(234, 91, 12, 0.05),
+      transparent 40%
+    ),
     radial-gradient(circle at bottom left, rgba(0, 0, 0, 0.02), transparent 40%);
 }
 

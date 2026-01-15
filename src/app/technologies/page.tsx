@@ -47,7 +47,6 @@ export default function TechnologiesPage() {
                         items={['Python', 'TypeScript', 'Java', 'JavaScript', 'SQL']}
                         icon={Code2}
                         className="md:col-span-2 lg:col-span-2 row-span-1"
-                        gradient="from-orange-600 to-red-600"
                         delay={0.1}
                     />
 
@@ -57,7 +56,6 @@ export default function TechnologiesPage() {
                         items={['React', 'Next.js', 'Angular', 'TailwindCSS', 'Framer Motion', 'React Native']}
                         icon={Smartphone}
                         className="md:col-span-1 lg:col-span-1 md:row-span-2"
-                        gradient="from-blue-600 to-indigo-600"
                         delay={0.2}
                     />
 
@@ -67,17 +65,15 @@ export default function TechnologiesPage() {
                         items={['FastAPI', 'Spring Boot', 'NestJs', 'Django', 'ExpressJs', 'GraphQL']}
                         icon={Server}
                         className="md:col-span-1 lg:col-span-1"
-                        gradient="from-purple-600 to-violet-600"
                         delay={0.3}
                     />
 
                     {/* AI & ML - Slate/Emerald */}
                     <TechCard
-                        title="AI & Machine Learning"
+                        title="AI & ML"
                         items={['LangChain', 'Ollama', 'PyTorch', 'PySpark', 'Pandas', 'NumPy', 'RAG Agents']}
                         icon={BrainCircuit}
                         className="md:col-span-2 lg:col-span-2"
-                        gradient="from-slate-800 to-gray-900"
                         delay={0.4}
                     />
 
@@ -87,7 +83,6 @@ export default function TechnologiesPage() {
                         items={['PostgreSQL', 'Redis', 'CloudNativePG', 'Vector DBs', 'RabbitMQ']}
                         icon={Database}
                         className="md:col-span-1 lg:col-span-1"
-                        gradient="from-teal-600 to-emerald-600"
                         delay={0.5}
                     />
 
@@ -97,7 +92,6 @@ export default function TechnologiesPage() {
                         items={['AWS', 'Kubernetes (K8s)', 'Docker', 'GitHub Actions', 'Jenkins', 'Cloud Foundry']}
                         icon={Cloud}
                         className="md:col-span-2 lg:col-span-2"
-                        gradient="from-cyan-600 to-sky-600"
                         delay={0.6}
                     />
 
@@ -107,7 +101,6 @@ export default function TechnologiesPage() {
                         items={['Microservices', 'Event-Driven', 'Distributed Systems', 'High Availability']}
                         icon={Workflow}
                         className="md:col-span-1 lg:col-span-1"
-                        gradient="from-rose-600 to-pink-600"
                         delay={0.7}
                     />
 

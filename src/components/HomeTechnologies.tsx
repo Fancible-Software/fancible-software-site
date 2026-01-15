@@ -50,7 +50,6 @@ export default function HomeTechnologies() {
                         items={['Python', 'TypeScript', 'Node.js', 'Go', 'React']}
                         icon={Code2}
                         className="md:col-span-2 lg:col-span-1 row-span-1"
-                        gradient="from-orange-600 to-red-600"
                         delay={0}
                     />
 
@@ -60,7 +59,6 @@ export default function HomeTechnologies() {
                         items={['LangChain', 'Ollama', 'PyTorch', 'RAG Agents']}
                         icon={BrainCircuit}
                         className="md:col-span-1 lg:col-span-1"
-                        gradient="from-slate-800 to-gray-900"
                         delay={0.1}
                     />
 
@@ -70,7 +68,6 @@ export default function HomeTechnologies() {
                         items={['AWS', 'Kubernetes', 'Docker', 'PostgreSQL']}
                         icon={Server}
                         className="md:col-span-1 lg:col-span-1"
-                        gradient="from-blue-600 to-indigo-600"
                         delay={0.2}
                     />
 
