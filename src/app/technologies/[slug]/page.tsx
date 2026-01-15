@@ -279,7 +279,7 @@ export default async function TechnologyPage({ params }: { params: Promise<{ slu
     return (
         <main className="bg-white min-h-screen">
             {/* Hero */}
-            <section className="pt-28 pb-12 px-6 border-b border-gray-50 relative overflow-hidden bg-white">
+            <section className="pt-8 pb-12 px-6 border-b border-gray-50 relative overflow-hidden bg-white">
                 <div className="max-w-7xl mx-auto">
                     {/* Nav Back */}
                     <div className="mb-8 p-1">
