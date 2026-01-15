@@ -294,7 +294,8 @@ export default function Home() {
                         dataKey="name"
                         axisLine={false}
                         tickLine={false}
-                        tick={{ fill: '#9ca3af', fontSize: 10, fontWeight: 'bold', textTransform: 'uppercase', letterSpacing: '0.05em' }}
+                        tick={{ fill: '#9ca3af', fontSize: 10, fontWeight: 'bold', letterSpacing: '0.05em' }}
+                        tickFormatter={(value) => value.toUpperCase()}
                         dy={10}
                       />
                       <Tooltip
