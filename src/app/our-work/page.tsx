@@ -55,7 +55,7 @@ const OurWorkPage = () => {
             <section className="pt-12 pb-16 px-6 border-b border-gray-50">
                 <div className="max-w-7xl mx-auto">
                     <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-8">
-                        Our Work.
+                        Our <span className="text-accent">Work</span>.
                     </h1>
                     <p className="text-xl text-secondary max-w-3xl leading-relaxed">
                         We partner with ambitious startups and enterprises to build digital products that drive real, measurable performance.
