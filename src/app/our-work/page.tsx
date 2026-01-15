@@ -13,40 +13,43 @@ const SelectedCaseStudyCard = dynamic(() => import('@/components/SelectedCaseStu
 const OurWorkPage = () => {
     const caseStudies = [
         {
-            client: "FinTech OS",
-            title: "Revolutionizing Digital Banking",
-            desc: "Built a high-performance dashboard that increased user engagement by 45%.",
-            stat: "45% Engagement Boost",
-            image: "/amy-hirschi-K0c8ko3e6AA-unsplash.jpg"
+            client: "Tiebreaker AI",
+            title: "AI-Native Compliance Automation Platform",
+            desc: "Built an intelligent compliance platform that automates audit preparation and streamlines policy management across multiple frameworks.",
+            stat: "5x Faster Audit Prep",
+            image: "/amy-hirschi-K0c8ko3e6AA-unsplash.jpg",
+            link: "https://www.tiebreaker-ai.com/"
         },
         {
-            client: "Logic Scale",
-            title: "Enterprise Inventory Management",
-            desc: "A custom SaaS solution that scaled to handle $2B in annual transactions.",
-            stat: "$2B Transacted Yearly",
-            image: "/annie-spratt-QckxruozjRg-unsplash.jpg"
+            client: "Marswell Foods",
+            title: "E-Commerce Platform for Bakery Ingredients",
+            desc: "Built a comprehensive digital platform enabling seamless ordering and catalog management for 50+ specialized bakery products and ingredients.",
+            stat: "50+ Products Cataloged",
+            image: "/annie-spratt-QckxruozjRg-unsplash.jpg",
+            link: "https://www.marswellfoods.com/"
         },
         {
-            client: "Prisma Cloud",
-            title: "Visual Data Exploration",
-            desc: "Re-engineered the visual core for 3.5x faster data rendering.",
-            stat: "3.5x Speed Increase",
-            image: "/cytonn-photography-n95VMLxqM2I-unsplash.jpg"
-        },
-        {
-            client: "Vanguard Apps",
-            title: "Mobile Real Estate Platform",
-            desc: "Native-feel cross-platform app delivered in 12 weeks for MVP launch.",
-            stat: "12-Week MVP Delivery",
-            image: "/daria-pimkina-Dj5HnHMtkH0-unsplash.jpg"
-        },
-        {
-            client: "CodeBase",
-            title: "Collaborative IDE Platform",
-            desc: "Next-gen collaborative tools for remote engineering teams.",
-            stat: "15k+ Monthly Active Users",
-            image: "/sean-pollock-PhYq704ffdA-unsplash.jpg"
+            client: "Simsan Fraser Maintenance",
+            title: "Landing Website & Custom Billing Software",
+            desc: "Delivered a professional landing website showcasing their maintenance services and a customized billing solution to streamline operations across Lower Mainland.",
+            stat: "4 Core Services Featured",
+            image: "/cytonn-photography-n95VMLxqM2I-unsplash.jpg",
+            link: "http://www.simsanfrasermain.com/"
         }
+        // {
+        //     client: "Vanguard Apps",
+        //     title: "Mobile Real Estate Platform",
+        //     desc: "Native-feel cross-platform app delivered in 12 weeks for MVP launch.",
+        //     stat: "12-Week MVP Delivery",
+        //     image: "/daria-pimkina-Dj5HnHMtkH0-unsplash.jpg"
+        // },
+        // {
+        //     client: "CodeBase",
+        //     title: "Collaborative IDE Platform",
+        //     desc: "Next-gen collaborative tools for remote engineering teams.",
+        //     stat: "15k+ Monthly Active Users",
+        //     image: "/sean-pollock-PhYq704ffdA-unsplash.jpg"
+        // }
     ];
 
     return (
@@ -70,46 +73,17 @@ const OurWorkPage = () => {
             {/* Work Grid */}
             <section className="py-16 px-6">
                 <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
-                    <SelectedCaseStudyCard
-                        client={caseStudies[0].client}
-                        title={caseStudies[0].title}
-                        desc={caseStudies[0].desc}
-                        stat={caseStudies[0].stat}
-                        image={caseStudies[0].image}
-                        delay={0}
-                    />
-                    <SelectedCaseStudyCard
-                        client={caseStudies[1].client}
-                        title={caseStudies[1].title}
-                        desc={caseStudies[1].desc}
-                        stat={caseStudies[1].stat}
-                        image={caseStudies[1].image}
-                        delay={0.15}
-                    />
-                    <SelectedCaseStudyCard
-                        client={caseStudies[2].client}
-                        title={caseStudies[2].title}
-                        desc={caseStudies[2].desc}
-                        stat={caseStudies[2].stat}
-                        image={caseStudies[2].image}
-                        delay={0.3}
-                    />
-                    <SelectedCaseStudyCard
-                        client={caseStudies[3].client}
-                        title={caseStudies[3].title}
-                        desc={caseStudies[3].desc}
-                        stat={caseStudies[3].stat}
-                        image={caseStudies[3].image}
-                        delay={0.45}
-                    />
-                    <SelectedCaseStudyCard
-                        client={caseStudies[4].client}
-                        title={caseStudies[4].title}
-                        desc={caseStudies[4].desc}
-                        stat={caseStudies[4].stat}
-                        image={caseStudies[4].image}
-                        delay={0.6}
-                    />
+                    {caseStudies.map((study, index) => (
+                        <SelectedCaseStudyCard
+                            key={index}
+                            client={study.client}
+                            title={study.title}
+                            desc={study.desc}
+                            stat={study.stat}
+                            image={study.image}
+                            delay={index * 0.15}
+                        />
+                    ))}
                 </div>
             </section>
         </div>
