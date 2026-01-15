@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import dynamic from 'next/dynamic';
 import { motion } from 'motion/react';
+import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import Hero from '@/components/Hero';
 
 const ArrowIcon = () => (
@@ -263,31 +264,54 @@ export default function Home() {
               transition={{ duration: 0.8 }}
               className="relative"
             >
-              <div className="aspect-square bg-white rounded-3xl p-12 shadow-2xl border border-gray-100 flex flex-col justify-center">
-                <div className="mb-8">
-                  <div className="text-[11px] font-bold uppercase tracking-widest text-accent mb-2">Sample Performance</div>
-                  <div className="text-4xl font-bold tracking-tight">+320% Lead Volume</div>
+              <div className="aspect-square bg-white rounded-3xl p-10 shadow-xl border border-gray-100 flex flex-col h-full relative overflow-hidden">
+                <div className="mb-8 z-10">
+                  <div className="text-[11px] font-bold uppercase tracking-widest text-[#ea5b0c] mb-2">Sample Performance</div>
+                  <div className="text-4xl font-bold tracking-tight text-gray-900">+320% Lead Volume</div>
                 </div>
-                <div className="space-y-4">
-                  {[40, 65, 55, 90, 85].map((h, i) => (
-                    <div key={i} className="flex items-end gap-2 h-12">
-                      <div className="w-full bg-gray-50 rounded-t-lg" style={{ height: `${h}%` }}>
-                        <motion.div
-                          initial={{ height: 0 }}
-                          whileInView={{ height: '100%' }}
-                          transition={{ duration: 1, delay: i * 0.1 }}
-                          className="w-full bg-accent rounded-t-lg"
-                        />
-                      </div>
-                    </div>
-                  ))}
-                </div>
-                <div className="mt-8 flex justify-between text-[11px] font-bold text-gray-400 uppercase tracking-widest">
-                  <span>Week 1</span>
-                  <span>Week 2</span>
-                  <span>Week 3</span>
-                  <span>Week 4</span>
-                  <span>Week 5</span>
+
+                <div className="flex-1 w-full h-full min-h-[240px]">
+                  <ResponsiveContainer width="100%" height="100%">
+                    <AreaChart
+                      data={[
+                        { name: 'Week 0', value: 0 },
+                        { name: 'Week 1', value: 10 },
+                        { name: 'Week 2', value: 30 },
+                        { name: 'Week 3', value: 60 },
+                        { name: 'Week 4', value: 140 },
+                        { name: 'Week 5', value: 320 },
+                      ]}
+                      margin={{ top: 10, right: 0, left: 0, bottom: 0 }}
+                    >
+                      <defs>
+                        <linearGradient id="colorValue" x1="0" y1="0" x2="0" y2="1">
+                          <stop offset="5%" stopColor="#ea5b0c" stopOpacity={0.2} />
+                          <stop offset="95%" stopColor="#ea5b0c" stopOpacity={0} />
+                        </linearGradient>
+                      </defs>
+                      <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f3f4f6" />
+                      <XAxis
+                        dataKey="name"
+                        axisLine={false}
+                        tickLine={false}
+                        tick={{ fill: '#9ca3af', fontSize: 10, fontWeight: 'bold', textTransform: 'uppercase', letterSpacing: '0.05em' }}
+                        dy={10}
+                      />
+                      <Tooltip
+                        contentStyle={{ borderRadius: '12px', border: 'none', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)' }}
+                        cursor={{ stroke: '#ea5b0c', strokeWidth: 1, strokeDasharray: '4 4' }}
+                      />
+                      <Area
+                        type="monotone"
+                        dataKey="value"
+                        stroke="#ea5b0c"
+                        strokeWidth={4}
+                        fillOpacity={1}
+                        fill="url(#colorValue)"
+                        activeDot={{ r: 6, strokeWidth: 0, fill: '#ea5b0c' }}
+                      />
+                    </AreaChart>
+                  </ResponsiveContainer>
                 </div>
               </div>
 
