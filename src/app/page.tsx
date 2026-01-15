@@ -16,6 +16,9 @@ const ArrowIcon = () => (
 const CapabilityCard = dynamic(() => import('@/components/CapabilityCard'), { ssr: false, loading: () => <div className="h-40 bg-muted animate-pulse rounded" /> });
 const HomeTechnologies = dynamic(() => import('@/components/HomeTechnologies'), { ssr: false, loading: () => <div className="h-60 bg-muted animate-pulse rounded" /> });
 const SelectedWorkCard = dynamic(() => import('@/components/SelectedWorkCard'), { ssr: false, loading: () => <div className="h-60 bg-muted animate-pulse rounded" /> });
+const TestimonialsSection = dynamic(() => import('@/components/TestimonialsSection'), { ssr: false });
+const IndustriesSection = dynamic(() => import('@/components/IndustriesSection'), { ssr: false });
+const FAQSection = dynamic(() => import('@/components/FAQSection'), { ssr: false });
 
 const pillars = [
   {
@@ -72,6 +75,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Testimonials Section */}
+      <TestimonialsSection />
 
       {/* Capabilities Preview Section */}
       <section className="py-16 px-6 bg-white overflow-hidden">
@@ -137,6 +143,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Industries Section */}
+      <IndustriesSection />
 
       {/* Technologies Section */}
       <HomeTechnologies />
@@ -213,6 +222,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* FAQ Section */}
+      <FAQSection />
 
       {/* Digital Marketing / SMB Focus Section */}
       <section className="py-24 px-6 bg-gray-50 border-y border-gray-100 overflow-hidden">

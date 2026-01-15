@@ -1,5 +1,6 @@
 import { client } from "@/lib/sanity";
 import BlogCard from "@/components/BlogCard";
+import * as motion from "framer-motion/client";
 
 export const revalidate = 60; // Revalidate every 60 seconds
 
@@ -21,9 +22,13 @@ export default async function BlogPage() {
         <main className="pt-12 pb-24 px-6 min-h-screen bg-white">
             <div className="max-w-7xl mx-auto">
                 <div className="text-center max-w-3xl mx-auto mb-12">
-                    <h1 className="text-5xl md:text-6xl font-bold mb-6 tracking-tight">
+                    <motion.h1
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        className="text-5xl md:text-6xl font-bold mb-6 tracking-tight"
+                    >
                         Our <span className="text-accent">Insights</span>
-                    </h1>
+                    </motion.h1>
                     <p className="text-xl text-secondary leading-relaxed">
                         Latest thoughts on engineering, product strategy, and digital growth.
                     </p>

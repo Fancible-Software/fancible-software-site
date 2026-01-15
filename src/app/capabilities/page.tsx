@@ -55,9 +55,13 @@ const CapabilitiesPage = () => {
             {/* Hero */}
             <section className="pt-12 pb-12 px-6 border-b border-gray-50">
                 <div className="max-w-7xl mx-auto">
-                    <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-8">
+                    <motion.h1
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        className="text-5xl md:text-7xl font-bold tracking-tight mb-8"
+                    >
                         <span className="text-accent">Capabilities</span>.
-                    </h1>
+                    </motion.h1>
                     <p className="text-xl text-secondary max-w-3xl leading-relaxed">
                         We offer an integrated delivery model that combines strategy, design, and engineering to solve the toughest challenges in SaaS and mobile app development.
                     </p>

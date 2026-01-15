@@ -10,9 +10,13 @@ const ContactPage = () => {
             {/* Hero */}
             <section className="pt-12 pb-16 px-6 border-b border-gray-50">
                 <div className="max-w-7xl mx-auto">
-                    <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-8">
+                    <motion.h1
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        className="text-5xl md:text-7xl font-bold tracking-tight mb-8"
+                    >
                         We Should <span className="text-accent">Talk</span>.
-                    </h1>
+                    </motion.h1>
                     <p className="text-xl text-secondary max-w-3xl leading-relaxed">
                         Ready to accelerate your SaaS performance or launch your next big app? Let’s discuss how we can help you achieve your goals.
                     </p>
